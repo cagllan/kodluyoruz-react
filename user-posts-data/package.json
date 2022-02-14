@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "Application that brings user and user posts data according to user id from jsonplaceholder api",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Caglan Atay",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.0"
+  }
 }
