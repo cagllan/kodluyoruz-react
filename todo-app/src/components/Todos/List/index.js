@@ -12,6 +12,12 @@ function List({ todos, changeTodos }) {
     );
   };
 
+
+  const removeTodoItem = (todoIndex) => {
+    todos.splice(todoIndex,1)
+    changeTodos([...todos])
+  };
+
   return (
     //  This section should be hidden by default and shown when there are todos
     <section className="main">
@@ -29,7 +35,7 @@ function List({ todos, changeTodos }) {
                 onChange={() => changeTodoIsComplete(index)}
               />
               <label>{item.todo}</label>
-              <button className="destroy"></button>
+              <button className="destroy" onClick={() => removeTodoItem(index)}></button>
             </div>
           </li>
         ))}
