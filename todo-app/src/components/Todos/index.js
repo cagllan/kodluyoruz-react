@@ -1,14 +1,16 @@
 import { useState } from "react";
 import "./styles.css";
+import Form from "./Form";
 
 function Todos() {
   const [todos, setTodos] = useState([]);
 
   return (
     <>
-      <section class="todoapp">
-        <header class="header">
+      <section className="todoapp">
+        <header className="header">
           <h1>todos</h1>
+          <Form />
         </header>
       </section>
     </>
