@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./styles.css";
 import Form from "./Form";
+import List from "./List";
 
 function Todos() {
   const [todos, setTodos] = useState([]);
@@ -12,6 +13,7 @@ function Todos() {
           <h1>todos</h1>
           <Form todos={todos} addTodos={setTodos}/>
         </header>
+        { todos.length > 0 && <List /> }
       </section>
     </>
   );
