@@ -1,18 +1,23 @@
 import React from 'react'
 
-function ListFooter() {
+function ListFooter({ todos, filterTodos}) {
+
+    const completedTodo = todos.filter(item => !item.isComplete);
+
+    const deletedAllCompletedTodos = () => filterTodos(todos.filter(item => !item.isComplete))
     
+    console.log(todos)
     return (
         //  This footer should hidden by default and shown when there are todos
         <footer className="footer">
     
             {/* This should be `0 items left` by default */}
             <span className="todo-count">
-                <strong>2 </strong>
+                <strong>{completedTodo.length} </strong>
                 items left
             </span>
     
-            <ul className="filters">
+            {/* <ul className="filters">
                 <li>
                     <a className="selected">All</a>
                 </li>
@@ -22,14 +27,14 @@ function ListFooter() {
                 <li>
                     <a>Completed</a>
                 </li>
-            </ul>
+            </ul> */}
     
              {/* Hidden if no completed items are left ↓  */}
-            <button className="clear-completed">
+            <button className="clear-completed" onClick={deletedAllCompletedTodos}>
                 Clear completed
             </button>
         </footer>
       )
 }
 
-export default ListFooter
+export default ListFooter;

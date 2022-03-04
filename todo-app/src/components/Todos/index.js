@@ -15,7 +15,7 @@ function Todos() {
           <Form todos={todos} addTodos={setTodos} />
         </header>
         {todos.length > 0 && <List todos={todos} changeTodos={setTodos} />}
-        {todos.length > 0 && <ListFooter />}
+        {todos.length > 0 && <ListFooter todos={todos} filterTodos={setTodos} />}
       </section>
     </>
   );
