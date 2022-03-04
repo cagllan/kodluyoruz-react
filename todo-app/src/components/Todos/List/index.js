@@ -2,6 +2,16 @@ import React from "react";
 
 function List({ todos, changeTodos }) {
 
+  const changeTodoIsComplete = (todoIndex) => {
+    changeTodos(
+      todos.map((todo, index) =>
+        index === todoIndex
+          ? { ...todo, isComplete: !todo.isComplete }
+          : { ...todo }
+      )
+    );
+  };
+
   return (
     //  This section should be hidden by default and shown when there are todos
     <section className="main">
@@ -9,19 +19,20 @@ function List({ todos, changeTodos }) {
       <label htmlFor="toggle-all">Mark all as complete</label>
 
       <ul className="todo-list">
-        {
-        todos.map((item, index) => 
-          (
-            <li className="" key={index}>
-                <div className="view">
-                    <input className="toggle" type="checkbox" />
-                    <label>{item.todo}</label>
-                    <button className="destroy"></button>
-                </div>
-            </li>
-          )
-        )
-        }
+        {todos.map((item, index) => (
+          <li className={!item.isComplete ? "" : "completed"} key={index}>
+            <div className="view">
+              <input
+                className="toggle"
+                type="checkbox"
+                checked={item.isComplete}
+                onChange={() => changeTodoIsComplete(index)}
+              />
+              <label>{item.todo}</label>
+              <button className="destroy"></button>
+            </div>
+          </li>
+        ))}
       </ul>
     </section>
   );
