@@ -10,7 +10,7 @@ function Todos() {
       <section className="todoapp">
         <header className="header">
           <h1>todos</h1>
-          <Form />
+          <Form todos={todos} addTodos={setTodos}/>
         </header>
       </section>
     </>
