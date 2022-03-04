@@ -1,7 +1,7 @@
 import React from "react";
 
-function List() {
-    
+function List({ todos, changeTodos }) {
+
   return (
     //  This section should be hidden by default and shown when there are todos
     <section className="main">
@@ -9,13 +9,19 @@ function List() {
       <label htmlFor="toggle-all">Mark all as complete</label>
 
       <ul className="todo-list">
-        <li className="">
-          <div className="view">
-            <input className="toggle" type="checkbox" />
-            <label>Learn JavaScript</label>
-            <button className="destroy"></button>
-          </div>
-        </li>
+        {
+        todos.map((item, index) => 
+          (
+            <li className="" key={index}>
+                <div className="view">
+                    <input className="toggle" type="checkbox" />
+                    <label>{item.todo}</label>
+                    <button className="destroy"></button>
+                </div>
+            </li>
+          )
+        )
+        }
       </ul>
     </section>
   );

@@ -13,7 +13,7 @@ function Todos() {
           <h1>todos</h1>
           <Form todos={todos} addTodos={setTodos}/>
         </header>
-        { todos.length > 0 && <List /> }
+        { todos.length > 0 && <List todos={todos} changeTodos={setTodos} /> }
       </section>
     </>
   );
